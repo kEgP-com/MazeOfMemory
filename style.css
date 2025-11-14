@@ -1,0 +1,117 @@
+:root{
+  --bg:#03060a;
+  --wall:#08171b;
+  --floor:#041018;
+  --node:#6ee7b7;
+  --visited:#7be6c3;
+  --accent:#ffd166;
+  --dialog-bg:rgba(4,6,8,0.93);
+  --hint-bg:rgba(0,0,0,0.45);
+}
+
+*{box-sizing:border-box;font-family:Inter,ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,Arial}
+
+html,body{height:100%;margin:0;background:var(--bg);color:#e6f0ff;overflow:hidden}
+#gameCanvas{display:block;width:100vw;height:100vh}
+
+#uiHint{
+  position:fixed;left:12px;bottom:12px;padding:8px 10px;background:var(--hint-bg);
+  color:#dbeafe;border-radius:8px;font-size:13px;z-index:50;
+}
+
+/* dialog overlay */
+.dialog-overlay{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(3px);z-index:100}
+.dialog-box{width:min(680px,92vw);background:var(--dialog-bg);color:#e6f0ff;padding:20px;border-radius:12px;box-shadow:0 12px 40px rgba(0,0,0,0.6)}
+.dialog-box h2{margin:0 0 8px 0;font-size:20px}
+.dialog-box p{margin:0 0 16px 0;white-space:pre-line;line-height:1.4}
+.dialog-actions{display:flex;gap:10px;justify-content:flex-end}
+.dialog-actions button{padding:8px 12px;border-radius:8px;border:0;background:#0b5160;color:#eaffff;cursor:pointer}
+.dialog-actions button.secondary{background:#2b3b44}
+
+/* small hint bubble */
+.hint-bubble{position:fixed;left:50%;transform:translateX(-50%);bottom:80px;background:rgba(0,0,0,0.6);color:#e6f0ff;padding:10px 14px;border-radius:999px;font-size:13px;z-index:60}
+
+/* responsive */
+@media (max-width:520px){
+  .dialog-box{padding:14px}
+  .dialog-actions button{padding:8px 10px;font-size:14px}
+}
+/* Settings Button */
+#settingsBtn {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 200;
+  padding: 6px 10px;
+  background:#222;color:#fff;border:none;border-radius:4px;cursor:pointer;
+  font-size:18px;
+}
+
+/* Settings Overlay */
+#settingsOverlay {
+  display: none;
+  position: fixed;
+  top:0; left:0; width:100%; height:100%;
+  background: rgba(0,0,0,0.7);
+  z-index: 199;
+  justify-content:center;
+  align-items:center;
+}
+
+.settingsBox {
+  background: #0a1b2d;
+  color: #fff;
+  padding: 20px 30px;
+  border-radius: 10px;
+  text-align: center;
+  min-width: 250px;
+}
+
+.settingsBox h2 {
+  margin-bottom: 15px;
+}
+
+.settingsBox input[type=range] {
+  width: 100%;
+  margin: 10px 0 20px;
+}
+.settingsBox button {
+  padding: 6px 12px;
+  border:none;
+  border-radius:5px;
+  background:#555;
+  color:#fff;
+  cursor:pointer;
+}
+/* Start / Settings Overlay common styles */
+#startOverlay, #settingsOverlay {
+  position: fixed;
+  top:0; left:0; width:100%; height:100%;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.startBox, .settingsBox {
+  background: #111;
+  color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 400px;
+}
+
+.startBox button, .settingsBox button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  border:none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.startBox button:hover, .settingsBox button:hover {
+  background: #222;
+}

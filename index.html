@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Maze of Memory</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="gameCanvas"></canvas>
+
+    <div id="uiHint">WASD / Arrow keys to move · Space to interact</div>
+
+    <button id="settingsBtn">⚙️ Settings</button>
+
+
+    <div id="startOverlay">
+    <div class="startBox">
+        <h2>Maze of Memory</h2>
+        <p>Objective: Explore the maze, face memory fragments, and uncover hidden paths. Use WASD / Arrow keys to move and Space to interact.</p>
+        <p>Collect at least 3 key memory fragments to unlock the exit.</p>
+        <button id="beginBtn">Begin</button>
+    </div>
+    </div>
+    <div id="settingsOverlay">
+    <div class="settingsBox">
+        <h2>Settings</h2>
+        <label for="volumeRange">Volume</label>
+        <input type="range" id="volumeRange" min="0" max="100" value="5">
+        <button id="closeSettings">Close</button>
+    </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>
